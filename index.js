@@ -34,10 +34,23 @@ const updateData = async()=>{
 }
 
 
+//delete data
+const deleteData = async ()=>{
+    let data = await connectToDb();
+    let result = data.deleteOne(
+        {name:'Raina'}
+    );
 
+    if((await result).acknowledged){
+        console.log("data deleted successfully..")
+    }    else{
+        console.log("Something went wrong, please try again...")
+    }
+}
 
 
 //calling of CRUD functions to start the execution
 // readData();
 // insertData([{name: 'Raina',machineNo: '45',technology:'python',}]);
-updateData();
+// updateData();
+// deleteData();
