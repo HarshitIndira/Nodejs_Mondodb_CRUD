@@ -19,9 +19,21 @@ const insertData = async (datatoinsert)=>{
     }
 }
 
+// update data 
 const updateData = async()=>{
     let data = await connectToDb();
+    let result = data.updateOne(
+        {name:'harshit'},{$set:{name:'Harhsit', position:'Jr Software Engineer'}}
+    );
+
+    if((await result).acknowledged){
+        console.log("Data updates successfully");
+    }else{
+        console.log("something went wrong, please try again..")
+    }
 }
+
+
 
 
 
